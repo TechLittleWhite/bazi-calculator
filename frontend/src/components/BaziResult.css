@@ -1,0 +1,351 @@
+.result-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bazi-chart,
+.wuxing-chart,
+.analysis-section,
+.fortune-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bazi-chart:hover,
+.wuxing-chart:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.bazi-chart h3,
+.wuxing-chart h3,
+.analysis-section h3,
+.fortune-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #1e293b;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #e2e8f0;
+  position: relative;
+}
+
+.bazi-chart h3::after,
+.wuxing-chart h3::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 2px;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 25px;
+}
+
+.pillar {
+  text-align: center;
+  position: relative;
+}
+
+.pillar-label {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pillar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 16px;
+  padding: 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+}
+
+.pillar-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+  50% { transform: translate(-30%, -30%) rotate(180deg); }
+}
+
+.pillar-content.day-master {
+  background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
+}
+
+.pillar-content .gan,
+.pillar-content .zhi {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.day-master-info {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #6366f1;
+  font-weight: 700;
+  margin-top: 20px;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(99, 102, 241, 0.2);
+}
+
+.wuxing-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+.wuxing-tag {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.wuxing-tag:hover {
+  transform: scale(1.05);
+}
+
+.wuxing-tag:nth-child(1) {
+  background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+}
+
+.wuxing-tag:nth-child(2) {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+}
+
+.wuxing-tag:nth-child(3) {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+}
+
+.wuxing-tag:nth-child(4) {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+.wuxing-tag:nth-child(5) {
+  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+}
+
+.analysis-content,
+.fortune-content {
+  line-height: 2;
+  color: #475569;
+  font-size: 1.05rem;
+}
+
+.analysis-content strong,
+.fortune-content strong {
+  color: #6366f1;
+  font-weight: 700;
+}
+
+.analysis-content p,
+.fortune-content p {
+  margin-bottom: 16px;
+}
+
+.analysis-content ul,
+.fortune-content ul {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+
+.analysis-content li,
+.fortune-content li {
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+
+@media (min-width: 1200px) {
+  .result-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bazi-chart {
+    grid-column: 1 / -1;
+  }
+
+  .analysis-section,
+  .fortune-section {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .pillars {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .bazi-chart,
+  .wuxing-chart,
+  .analysis-section,
+  .fortune-section {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+
+  .bazi-chart h3,
+  .wuxing-chart h3,
+  .analysis-section h3,
+  .fortune-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .pillar-content .gan,
+  .pillar-content .zhi {
+    font-size: 2rem;
+  }
+
+  .pillar-label {
+    font-size: 0.9rem;
+  }
+
+  .day-master-info {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+
+  .wuxing-details {
+    gap: 10px;
+  }
+
+  .wuxing-tag {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .analysis-content,
+  .fortune-content {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .result-container {
+    gap: 20px;
+  }
+
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .bazi-chart,
+  .wuxing-chart,
+  .analysis-section,
+  .fortune-section {
+    padding: 25px 18px;
+    border-radius: 16px;
+  }
+
+  .bazi-chart h3,
+  .wuxing-chart h3,
+  .analysis-section h3,
+  .fortune-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+  }
+
+  .pillar-content {
+    padding: 16px;
+  }
+
+  .pillar-content .gan,
+  .pillar-content .zhi {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  .pillar-label {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+
+  .day-master-info {
+    font-size: 1rem;
+    margin-top: 15px;
+    padding: 10px;
+  }
+
+  .wuxing-details {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .wuxing-tag {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+
+  .analysis-content,
+  .fortune-content {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .analysis-content p,
+  .fortune-content p {
+    margin-bottom: 12px;
+  }
+}
+
